@@ -1,6 +1,6 @@
-#Explanation For DDL Oracle
+# Explanation For DDL Oracle
 
-##DDL Create
+## DDL Create
 ```
 create table users{
     id int primary key auto_increment,
@@ -14,58 +14,58 @@ create table users{
 }
 ```
 
-##DDL Alter
-    ###Add columns
-        -> Single
+## DDL Alter
+    Add columns:
+        - Single
             ```
             ALTER TABLE users ADD address varchar2(45);
             ```
-        -> multiple
+        - multiple
             ```
             ALTER TABLE users ADD (contact varchar2(12), company varchar2(50));
             ```
-    ###Modify columns
-        ->Single
+    Modify columns:
+        - Single
             ```
             ALTER TABLE users MODIFY contact varchar2(20);
             ```
-        ->multiple
+        - multiple
             ```
             ALTER TABLE users MODIFY (address varchar2(100), company varchar2(30));
             ```
-    ###Rename columns
+    Rename columns:
         ```
         ALTER TABLE users RENAME COLUMN contact TO phone;
         ```
-    ###Rename Table
+    Rename Table:
         ```
         ALTER TABLE users RENAME TO updated_users;
         ```
-    ###Drop columns
+    Drop columns:
         ```
         ALTER TABLE users DROP COLUMN company;
         ```
 
-##DL Drop
+## DL Drop
     ```
     DROP table users PURGE;
     ```
-##DDL Truncat
+## DDL Truncat
     ```
     TRUNCATE TABLE users PRESERVE MATERIALIZED VIEW LOG;
     TRUNCATE TABLE users;
     ```
-##Perhari
+## Perhari
     ```
     SELECT * FROM users WHERE created_at = now();
     ```
 
-##Perbulan
+## Perbulan
     ```
     SELECT * FROM users WHERE MOUNTH(created_at) = '02' GROUP_BY created_at;
     ```
 
-##Pertahun
+## Pertahun
     ```
     SELECT * FROM users WHERE YEAR(created_at) = '2017' GROUP_BY MOUNTH(created_at);
     ```
