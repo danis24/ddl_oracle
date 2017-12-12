@@ -17,55 +17,31 @@ create table users{
 ## DDL Alter
     Add columns:
         - Single
-            ```
-            ALTER TABLE users ADD address varchar2(45);
-            ```
+            `ALTER TABLE users ADD address varchar2(45);`
         - multiple
-            ```
-            ALTER TABLE users ADD (contact varchar2(12), company varchar2(50));
-            ```
+            `ALTER TABLE users ADD (contact varchar2(12), company varchar2(50));`
     Modify columns:
         - Single
-            ```
-            ALTER TABLE users MODIFY contact varchar2(20);
-            ```
+            `ALTER TABLE users MODIFY contact varchar2(20);`
         - multiple
-            ```
-            ALTER TABLE users MODIFY (address varchar2(100), company varchar2(30));
-            ```
+            `ALTER TABLE users MODIFY (address varchar2(100), company varchar2(30));`
     Rename columns:
-        ```
-        ALTER TABLE users RENAME COLUMN contact TO phone;
-        ```
+        `ALTER TABLE users RENAME COLUMN contact TO phone;`
     Rename Table:
-        ```
-        ALTER TABLE users RENAME TO updated_users;
-        ```
+        `ALTER TABLE users RENAME TO updated_users;`
     Drop columns:
-        ```
-        ALTER TABLE users DROP COLUMN company;
-        ```
+        `ALTER TABLE users DROP COLUMN company;`
 
 ## DL Drop
-    ```
-    DROP table users PURGE;
-    ```
+    `DROP table users PURGE;`
 ## DDL Truncat
-    ```
-    TRUNCATE TABLE users PRESERVE MATERIALIZED VIEW LOG;
-    TRUNCATE TABLE users;
-    ```
+    `TRUNCATE TABLE users PRESERVE MATERIALIZED VIEW LOG;`
+    `TRUNCATE TABLE users;`
 ## Perhari
-    ```
-    SELECT * FROM users WHERE created_at = now();
-    ```
+    `SELECT * FROM users WHERE created_at = now();`
 
 ## Perbulan
-    ```
-    SELECT * FROM users WHERE MOUNTH(created_at) = '02' GROUP_BY created_at;
-    ```
+    `SELECT * FROM users WHERE MOUNTH(created_at) = '02' GROUP_BY created_at;`
 
 ## Pertahun
-    ```
-    SELECT * FROM users WHERE YEAR(created_at) = '2017' GROUP_BY MOUNTH(created_at);
-    ```
+    `SELECT * FROM users WHERE YEAR(created_at) = '2017' GROUP_BY MOUNTH(created_at);`
